@@ -123,8 +123,8 @@ def readproduct(request, id):
 
 @login_required
 def cart (request):
-    customer = request.user.customer
-    order, created = order.objects.get_or_create(customer=customer, complete=False)
+    # customer = request.user.customer
+    # order, created = order.objects.get_or_create(customer=customer, complete=False)
     return render(request, 'html/cart.html')
 
 
