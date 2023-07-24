@@ -3,7 +3,7 @@ dj-database-url==2.0.0
 Django
 gunicorn==21.2.0
 packaging==23.1
-Pillow==10.0.0
+Pillow
 psycopg2==2.9.6
 python-decouple==3.8
 sqlparse==0.4.4
