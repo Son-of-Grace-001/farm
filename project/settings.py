@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import dj_database_url
 from decouple import config
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('secret_key')
+SECRET_KEY = os.environ.get(('secret_key'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('debug',cast=bool)
+DEBUG = os.environ.get('debug',cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -85,7 +88,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # }
 
 DATABASES = {
-    "default": dj_database_url.parse(config("external_url")),
+    "default": os.environ.get("external_url"),
 }
 
 # Password validation
