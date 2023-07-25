@@ -50,10 +50,6 @@ nav{
 .home{
   font-weight: bold;
 }
-.home:hover{
-  cursor:pointer;
-  opacity:0.8;
-}
 .btn{
   width: 120px;
   height: 40px;
@@ -70,13 +66,7 @@ nav{
   padding-left: 10px;
   width: 300px;
 }
-.btn:hover{
-  cursor:pointer;
-  opacity:0.8;
-}
-li:hover{
-  opacity:0.8;
-}
+
 
 /* styling birds varieties*/
 .varieties{
@@ -159,16 +149,13 @@ li:hover{
   text-decoration: none;
   color: #1D4025;
 }
+
 #menu,
 #close{
-  align-items: center;
   display: none;
 }
 .inner-logout{
   display: none;
-}
-a{
-  text-decoration:none;
 }
 
 @media only screen and (max-width:1024px) and (min-width:769px){
@@ -236,7 +223,7 @@ a{
     position: absolute;
     text-align: center;
     top: 110%;
-    padding-left: 30px;
+    padding-left: 40px;
     padding-top: 30px;
     margin: auto;
     display: none;
@@ -274,6 +261,10 @@ a{
 }
 
 @media screen and (max-width: 600px){
+
+  body{
+    object-fit: fill;
+  }
 
   nav{
     padding: 20px;

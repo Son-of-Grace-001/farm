@@ -11,7 +11,7 @@
   padding:50px 100px 50px 100px;
 }
 .left-div{
-  background-image: url("../images/image 11.png");
+  background-image: url("../images/image 11.a2f528f5c04a.png");
   background-size: cover;
   background-position: cover;
   border: 1px solid #767A77;
@@ -127,7 +127,7 @@ form >label{
   }
   .left-div{
     height: 500px;
-    background-image: url(../images/barnevelder-chicken-in-backyard.webp);
+    background-image: url("../images/barnevelder-chicken-in-backyard.df0ebe439645.webp");
   }
   .right-div{
     padding: 40px;
@@ -142,7 +142,7 @@ form >label{
   }
   .left-div{
     height: 250px;
-    background-image: url(../images/barnevelder-chicken-in-backyard.webp);
+    background-image: url("../images/barnevelder-chicken-in-backyard.df0ebe439645.webp");
   }
   .right-div{
     padding: 20px;

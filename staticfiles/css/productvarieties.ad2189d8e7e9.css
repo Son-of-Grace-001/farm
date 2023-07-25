@@ -50,10 +50,6 @@ nav{
 .home{
   font-weight: bold;
 }
-.home:hover{
-  cursor:pointer;
-  opacity:0.8;
-}
 .btn{
   width: 120px;
   height: 40px;
@@ -70,13 +66,7 @@ nav{
   padding-left: 10px;
   width: 300px;
 }
-.btn:hover{
-  cursor:pointer;
-  opacity:0.8;
-}
-li:hover{
-  opacity:0.8;
-}
+
 
 /* styling birds varieties*/
 .varieties{
@@ -100,12 +90,16 @@ li:hover{
 .name{
   text-transform: capitalize;
   color: #1D4025;
-  margin-bottom: 10px;
   margin-top: 10px;
 }
 .cat-cont{
   color: #767A77;
   margin-bottom: 10px;
+}
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
 }
 .view{
   text-transform: capitalize;
@@ -119,12 +113,37 @@ li:hover{
   background-color: #ffffff;
 }
 
+button{
+  text-transform: capitalize;
+  border: 1px slid #1D4025;
+  border-radius: 10px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #1D4025;
+  color: #ffffff;
+}
+button:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+.view:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 .categories-cont{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 40px;
 }
-
+.price{
+  color: #1D4025;
+  font-size: 20px;
+  margin-top: 5px;
+ 
+}
 /*styling the footer div*/
 .footer-div{
   background-color: #1D4025;
@@ -166,9 +185,6 @@ li:hover{
 }
 .inner-logout{
   display: none;
-}
-a{
-  text-decoration:none;
 }
 
 @media only screen and (max-width:1024px) and (min-width:769px){
@@ -236,7 +252,7 @@ a{
     position: absolute;
     text-align: center;
     top: 110%;
-    padding-left: 30px;
+    padding-left: 40px;
     padding-top: 30px;
     margin: auto;
     display: none;
@@ -259,7 +275,7 @@ a{
   }
   .categories-cont{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .search{
     width: 150px;
@@ -307,7 +323,7 @@ a{
   }
   .categories-cont{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   .search{
     width: 150px;
@@ -322,5 +338,16 @@ a{
   #menu{
     display: block;
   }
-  
+  .img-cont{
+    height: 100px;
+    width: 100%;
+  }
+  .img-cont >img{
+    height: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+ button{
+  font-size: 12px;
+ }
 }

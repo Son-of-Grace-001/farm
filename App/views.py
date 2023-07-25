@@ -55,7 +55,6 @@ def about(request):
 def service(request):
     return render(request, 'html/services.html')
 
-@login_required
 def home(request):
     category = Category.objects.all()
     context = {

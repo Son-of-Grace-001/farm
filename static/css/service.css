@@ -79,7 +79,7 @@ nav{
 
 /*styling the top-main*/
 .top-main{
-  background-image: url(../images/image\ 32.png);
+  background-image: url("../images/image/32.png");
   height: 500px;
   width: 100%;
   background-size: cover;
