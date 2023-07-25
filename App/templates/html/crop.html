@@ -46,15 +46,16 @@
       <div class="categories-cont">
         {% for categories in category %}
         <div>
-          <div class="img-cont">
-            <img src="{{ categories.image.url}}" alt="">
+          <a href="{% url 'cropvarieties' categories.id %}">
+            <div class="img-cont">
+              <img src="{{ categories.image.url}}" alt="">
+            </div>
+            <h3 class="name">{{categories.name}}</h3>
+            <p class="cat-cont">
+              {{categories.description}}
+            </p>
           </div>
-          <h3 class="name">{{categories.name}}</h3>
-          <p class="cat-cont">
-            {{categories.description}}
-          </p>
-          <a href="{% url 'cropvarieties' categories.id %}"><button class="view">view more</button></a>
-        </div>
+        </a>
         {% endfor %}
       </div>
     </div>

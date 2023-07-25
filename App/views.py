@@ -62,7 +62,7 @@ def home(request):
     }
     return render(request, 'html/home.html', context)
 
-@login_required
+
 def market(request):
     category = ProductCategory.objects.all()
     context = {
@@ -71,21 +71,21 @@ def market(request):
     
     return render(request, 'html/market.html', context)
 
-@login_required
+
 def varieties(request, id):
     cat = Category.objects.get(id = id)
     category = Varieties.objects.filter(category = cat)
     context = {"category": category, "name":cat.name }
     return render (request, 'html/varieties.html', context)
 
-@login_required
+
 def read(request, id):
     variety = Varieties.objects.get(id=id)
     diseases = Disease.objects.filter(varieties = variety)
     context = {"variety": variety, "diseases": diseases}
     return render (request, 'html/read.html', context)
 
-@login_required
+
 def crop(request):
     category = CropCategory.objects.all()
     context = {
@@ -93,45 +93,45 @@ def crop(request):
     }
     return render(request, 'html/crop.html', context)
 
-@login_required
+
 def crops(request, id):
     cat = CropCategory.objects.get(id = id)
     category = CropVarieties.objects.filter(category = cat)
     context = {"category": category, "name":cat.name }
     return render (request, 'html/cropvarieties.html', context)
 
-@login_required
+
 def readcrops(request, id):
     variety = CropVarieties.objects.get(id=id)
     # diseases = Disease.objects.filter(varieties = variety)
     context = {"variety": variety}
     return render (request, 'html/readcrops.html', context)
 
-@login_required
+
 def products(request, id):
     cat = ProductCategory.objects.get(id = id)
     category = ProductVarieties.objects.filter(category = cat)
     context = {"category": category, "name":cat.name }
     return render (request, 'html/productvarieties.html', context)
 
-@login_required
+
 def readproduct(request, id):
     variety = ProductVarieties.objects.get(id=id)
     context = {"variety": variety}
     return render (request, 'html/readproduct.html', context)
 
-@login_required
+
 def cart (request):
     # customer = request.user.customer
     # order, created = order.objects.get_or_create(customer=customer, complete=False)
     return render(request, 'html/cart.html')
 
 
-@login_required
+
 def checkout (request):
     return render(request, 'html/checkout.html')
 
-@login_required
+
 def payment (request):
     return render(request, 'html/payment.html')
 

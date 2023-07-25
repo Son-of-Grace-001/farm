@@ -20,7 +20,7 @@ class Varieties(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     small_description = models.CharField(max_length=200)
     description = models.TextField()
-    weather = models.CharField(max_length=200)
+    weather = models.TextField()
     yields = models.TextField()
     image =models.ImageField(upload_to ="varieties/" )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

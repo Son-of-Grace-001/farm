@@ -45,21 +45,22 @@
       <h2 class="birds-var">{{ name }} Varieties</h2>
       <div class="categories-cont">
         {% for categories in category %}
-        <div>
-          <div class="img-cont">
-            <img src="{{ categories.image.url}}" alt="">
-          </div>
-          <h3 class="name">{{categories.name}}</h3>
-          <p class="cat-cont">
-            {{categories.small_description}}
-          </p>
-          <p class="price">
-            {{categories.price}}
-          </p>
-          <div class="container">
-            <button data-product="{{categories.id}}" data-action="add" class="update-cart">add to cart</button>
-            <a href="{% url 'readproduct'  categories.id %}"><button class="view">view more</button></a>
-          </div>
+        <a href="{% url 'readproduct'  categories.id %}">
+            <div>
+              <div class="img-cont">
+                <img src="{{ categories.image.url}}" alt="">
+              </div>
+              <h3 class="name">{{categories.name}}</h3>
+              <p class="cat-cont">
+                {{categories.small_description}}
+              </p>
+              <p class="price">
+                {{categories.price}}
+              </p>
+              <div class="container">
+                <button data-product="{{categories.id}}" data-action="add" class="update-cart">add to cart</button>
+            </div>
+        </a>
         </div>
         {% endfor %}
       </div>
