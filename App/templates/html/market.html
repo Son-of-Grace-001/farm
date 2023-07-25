@@ -42,8 +42,8 @@
   <main>
     <div class="varieties">
       <h2 class="birds-var">Products Categories</h2>
-      <a href="{% url 'productvarieties' categories.id %}">
       <div class="categories-cont">
+        <a href="{% url 'productvarieties' categories.id %}">
         {% for categories in category %}
           <div>
             <div class="img-cont">
@@ -52,8 +52,8 @@
             </div>
           </div>
         {% endfor %}
+        </a>
       </div>
-      </a>
     </div>
   </main>
 
