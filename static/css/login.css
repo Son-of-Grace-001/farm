@@ -109,6 +109,7 @@ form >label{
 .here{
   color: #1D4025;
   text-decoration: none;
+  font-weight: bold;
 }
 
 @media only screen and (min-width:769px){
