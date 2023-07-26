@@ -96,11 +96,6 @@ nav{
   color: #767A77;
   margin-bottom: 10px;
 }
-.container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 5px;
-}
 .view{
   text-transform: capitalize;
   border: 1px slid #1D4025;
