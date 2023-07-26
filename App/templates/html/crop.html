@@ -45,16 +45,16 @@
       <h2 class="birds-var">Crops Categories</h2>
       <div class="categories-cont">
         {% for categories in category %}
+        <a href="{% url 'cropvarieties' categories.id %}">
         <div>
-          <a href="{% url 'cropvarieties' categories.id %}">
-            <div class="img-cont">
-              <img src="{{ categories.image.url}}" alt="">
-            </div>
-            <h3 class="name">{{categories.name}}</h3>
-            <p class="cat-cont">
-              {{categories.description}}
-            </p>
+          <div class="img-cont">
+            <img src="{{ categories.image.url}}" alt="">
           </div>
+          <h3 class="name">{{categories.name}}</h3>
+          <p class="cat-cont">
+            {{categories.description}}
+          </p>
+        </div>
         </a>
         {% endfor %}
       </div>
