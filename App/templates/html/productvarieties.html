@@ -46,22 +46,22 @@
       <div class="categories-cont">
         {% for categories in category %}
         <a href="{% url 'readproduct'  categories.id %}">
-            <div>
-              <div class="img-cont">
-                <img src="{{ categories.image.url}}" alt="">
-              </div>
-              <h3 class="name">{{categories.name}}</h3>
-              <p class="cat-cont">
-                {{categories.small_description}}
-              </p>
-              <p class="price">
-                {{categories.price}}
-              </p>
-              <div class="container">
-                <button data-product="{{categories.id}}" data-action="add" class="update-cart">add to cart</button>
+          <div>
+            <div class="img-cont">
+              <img src="{{ categories.image.url}}" alt="">
             </div>
+            <h3 class="name">{{categories.name}}</h3>
+            <p class="cat-cont">
+              {{categories.small_description}}
+            </p>
+            <p class="price">
+              {{categories.price}}
+            </p>
+            <div class="container">
+              <button class="add">add to cart</button>
+            </div>
+          </div>
         </a>
-        </div>
         {% endfor %}
       </div>
     </div>

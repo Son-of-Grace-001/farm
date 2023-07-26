@@ -113,7 +113,7 @@ nav{
   background-color: #ffffff;
 }
 
-button{
+.add{
   text-transform: capitalize;
   border: 1px slid #1D4025;
   border-radius: 10px;
@@ -124,7 +124,7 @@ button{
   background-color: #1D4025;
   color: #ffffff;
 }
-button:hover{
+.add:hover{
   opacity: 0.7;
   cursor: pointer;
 }
