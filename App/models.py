@@ -8,7 +8,7 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=200)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
         return self.name
@@ -22,7 +22,7 @@ class Varieties(models.Model):
     description = models.TextField()
     weather = models.TextField()
     yields = models.TextField()
-    image =models.ImageField()
+    image =models.ImageField(upload_to='images/', blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -47,7 +47,7 @@ class Symptoms(models.Model):
 class ProductCategory(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
         return self.name
@@ -59,7 +59,7 @@ class ProductVarieties(models.Model):
     small_description = models.CharField(max_length=200)
     description = models.TextField()
     price  = models.CharField(max_length=100)
-    image =models.ImageField()
+    image =models.ImageField(upload_to='images/', blank=True)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -70,7 +70,7 @@ class CropCategory(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=200)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/', blank=True)
 
     def __str__(self):
         return self.name
@@ -83,7 +83,7 @@ class CropVarieties(models.Model):
     description = models.TextField()
     weather = models.TextField()
     yields = models.TextField()
-    image =models.ImageField()
+    image =models.ImageField(upload_to='images/', blank=True)
     category = models.ForeignKey(CropCategory, on_delete=models.CASCADE)
 
     def __str__(self):
