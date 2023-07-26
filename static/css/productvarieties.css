@@ -136,6 +136,8 @@ nav{
 .price{
   color: #767177;
   margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
  
 }
 /*styling the footer div*/
