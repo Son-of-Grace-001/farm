@@ -8,21 +8,21 @@ class Category(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="category/")
+    image = models.ImageField()
 
     def __str__(self):
         return self.name
     
 
 class Varieties(models.Model):
-    category_var = models.CharField(max_length=100, default='chicken')
+    category_var = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     small_description = models.CharField(max_length=200)
     description = models.TextField()
     weather = models.TextField()
     yields = models.TextField()
-    image =models.ImageField(upload_to ="varieties/" )
+    image =models.ImageField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class Varieties(models.Model):
 
 class Disease(models.Model):
     name = models.CharField(max_length=100)
-    pest_description = models.TextField( default='i')
+    pest_description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
     def __str__(self):
@@ -47,7 +47,7 @@ class Symptoms(models.Model):
 class ProductCategory(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to="category/")
+    image = models.ImageField()
 
     def __str__(self):
         return self.name
@@ -59,7 +59,7 @@ class ProductVarieties(models.Model):
     small_description = models.CharField(max_length=200)
     description = models.TextField()
     price  = models.CharField(max_length=100)
-    image =models.ImageField(upload_to ="varieties/" )
+    image =models.ImageField()
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -70,20 +70,20 @@ class CropCategory(models.Model):
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="category/")
+    image = models.ImageField()
 
     def __str__(self):
         return self.name
     
 class CropVarieties(models.Model):
-    category_var = models.CharField(max_length=100, default='chicken')
+    category_var = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
     small_description = models.CharField(max_length=200)
     description = models.TextField()
     weather = models.TextField()
     yields = models.TextField()
-    image =models.ImageField(upload_to ="varieties/" )
+    image =models.ImageField()
     category = models.ForeignKey(CropCategory, on_delete=models.CASCADE)
 
     def __str__(self):
