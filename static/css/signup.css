@@ -38,6 +38,7 @@
 .welcome{
   margin-top: 20px;
   margin-bottom: 20px;
+  color:#1D4025;
 }
 .login-p{
   margin-top: 20px;
@@ -154,5 +155,5 @@ form >label{
   .check-btn{
     margin-top:8px;
   }
-  
+
 }
