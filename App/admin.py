@@ -4,7 +4,7 @@ from django.contrib import admin
 from . models import Category, Varieties
 from . models import Disease, CropVarieties
 from . models import ProductCategory, ProductVarieties
-from . models import Symptoms, CropCategory
+from . models import Symptoms, CropCategory, Crop_Disease
 admin.site.register(Category)
 admin.site.register(CropCategory)
 admin.site.register(ProductCategory)
@@ -24,9 +24,9 @@ class MyCropVariety(admin.ModelAdmin):
 admin.site.register(CropVarieties, MyCropVariety)
 
 class MyDiseases(admin.ModelAdmin):
-    list_display = ('name', 'date', 'pest_description', 'varieties')
+    list_display = ('name', 'date', 'disease_description', 'symptoms', 'control', 'varieties')
 admin.site.register(Disease, MyDiseases)
 
-class MySymptoms(admin.ModelAdmin):
-    list_display = ('sym','treatment', 'date','disease')
-admin.site.register(Symptoms, MySymptoms)
+class MyC_Diseases(admin.ModelAdmin):
+    list_display = ('name', 'date', 'disease_description', 'symptoms', 'control', 'varieties')
+admin.site.register(Crop_Disease, MyC_Diseases)

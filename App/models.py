@@ -31,18 +31,15 @@ class Varieties(models.Model):
 
 class Disease(models.Model):
     name = models.CharField(max_length=100)
-    pest_description = models.TextField()
+    disease_description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
+    symptoms = models.TextField()
+    controls = models.TextField()
     def __str__(self):
       return self.name
 
 
-class Symptoms(models.Model):
-    sym = models.TextField()
-    treatment = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    disease = models.ForeignKey(Disease, on_delete=models.CASCADE, related_name="dis")
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=100)
@@ -86,5 +83,15 @@ class CropVarieties(models.Model):
     image =models.ImageField(upload_to='images/', blank=True)
     category = models.ForeignKey(CropCategory, on_delete=models.CASCADE)
 
+    def __str__(self):
+      return self.name
+    
+class Crop_Disease(models.Model):
+    name = models.CharField(max_length=100)
+    disease_description = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
+    symptoms = models.TextField()
+    controls = models.TextField()
     def __str__(self):
       return self.name
