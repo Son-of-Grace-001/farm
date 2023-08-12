@@ -34,8 +34,8 @@ class Disease(models.Model):
     pest_description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
-    symptoms = models.TextField()
-    controls = models.TextField()
+    symptoms = models.TextField(default='hi')
+    controls = models.TextField(default='hi')
     def __str__(self):
       return self.name
 
