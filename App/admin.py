@@ -4,7 +4,7 @@ from django.contrib import admin
 from . models import Category, Varieties
 from . models import Disease, CropVarieties
 from . models import ProductCategory, ProductVarieties
-from . models import Symptoms, CropCategory, Crop_Disease
+from . models import CropCategory, Crop_Disease
 admin.site.register(Category)
 admin.site.register(CropCategory)
 admin.site.register(ProductCategory)
