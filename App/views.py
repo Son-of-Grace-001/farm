@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from . models import Category, Varieties, Disease, CropCategory
+from . models import Category, Varieties, Disease,CropCategory
 from . models import ProductCategory, CropVarieties, ProductVarieties 
 from django . http import JsonResponse
 import json
