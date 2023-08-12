@@ -31,7 +31,7 @@ class Varieties(models.Model):
 
 class Disease(models.Model):
     name = models.CharField(max_length=100)
-    disease_description = models.TextField()
+    pest_description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
     symptoms = models.TextField()
