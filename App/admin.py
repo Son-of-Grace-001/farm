@@ -24,9 +24,9 @@ class MyCropVariety(admin.ModelAdmin):
 admin.site.register(CropVarieties, MyCropVariety)
 
 class MyDiseases(admin.ModelAdmin):
-    list_display = ('name', 'date', 'disease_description', 'symptoms', 'control', 'varieties')
+    list_display = ('name', 'date', 'disease_description', 'symptoms', 'controls', 'varieties')
 admin.site.register(Disease, MyDiseases)
 
 class MyC_Diseases(admin.ModelAdmin):
-    list_display = ('name', 'date', 'disease_description', 'symptoms', 'control', 'varieties')
+    list_display = ('name', 'date', 'disease_description', 'symptoms', 'controls', 'varieties')
 admin.site.register(Crop_Disease, MyC_Diseases)
