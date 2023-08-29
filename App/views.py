@@ -24,7 +24,7 @@ def signup(request):
             messages.info(request, "Username has already been used")
             return redirect('signup')
         email = request.POST.get('email')
-        if User.objects.filter(email= "emial").exists:
+        if User.objects.filter(email= "email").exists:
             messages.info(request, "Email has already been used")
             return redirect('signup')
         password = request.POST.get('password')
