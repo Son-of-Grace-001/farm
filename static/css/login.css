@@ -17,6 +17,10 @@
   border: 1px solid #767A77;
 }
 
+input:focus{ 
+  border: 1px solid red
+}
+
 /*styling the right div*/
 .right-div{
   padding: 50px;

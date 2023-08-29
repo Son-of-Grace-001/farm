@@ -22,9 +22,11 @@ def signup(request):
         username = request.POST.get('username')
         if User.objects.filter(username= "username").exists:
             messages.info(request, "Username has already been used")
+            return redirect('signup')
         email = request.POST.get('email')
         if User.objects.filter(email= "emial").exists:
             messages.info(request, "Email has already been used")
+            return redirect('signup')
         password = request.POST.get('password')
         if not lastname or not firstname or not username or not email or not password:
             print("Incomplete details")
