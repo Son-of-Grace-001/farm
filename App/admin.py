@@ -12,13 +12,13 @@ admin.site.register(ProductVarieties)
 
 
 class MyVariety(admin.ModelAdmin):
-    list_display = ('category_var', 'name', 'date', 'small_description',
+    list_display = ('category_var', 'name', 'date', 
                     'weather', 'yields', 'category', 'image')
 
 admin.site.register(Varieties, MyVariety)
 
 class MyCropVariety(admin.ModelAdmin):
-    list_display = ('category_var', 'name', 'date', 'small_description',
+    list_display = ('category_var', 'name', 'date',
                     'weather', 'yields', 'category', 'image')
 
 admin.site.register(CropVarieties, MyCropVariety)
