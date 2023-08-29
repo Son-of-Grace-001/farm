@@ -34,16 +34,16 @@
         <p class="ppp" id="required2">field cannot be empty</p>
 
         <label for="username">Username</label> <br>
-        {% for message in messages %}
         <input id="username"  type="text" class="username" name="username" placeholder="enter your username" >
-        <p class=" messages">{{message}}</p>
-        {% endfor %}
         <p class="ppp" id="required3">field cannot be empty</p>
+        {% for messagee in messages %}
+        <p class=" messages">{{messagee}}</p>
+        {% endfor %}
 
         <label for="username">Email</label> <br>
-        {% for message in messages %}
         <input  type="email" id="mail" class="username" name="email" placeholder="enter your email" >
         <p class="ppp" id="required4"> enter a valid email</p>
+        {% for message in messages %}
         <p class=" messages">{{message}}</p>
         {% endfor %}
 
