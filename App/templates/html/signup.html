@@ -33,8 +33,8 @@
         <input type="text" id="lname" class="username" name="lastname" placeholder="enter your lastname" >
         <p class="ppp" id="required2">field cannot be empty</p>
 
-        <label for="username">Username</label> <br>
         {% for message in messages %}
+        <label for="username">Username</label> <br>
         <input id="username"  type="text" class="username" name="username" placeholder="enter your username" >
         <p class="ppp" id="required3">field cannot be empty</p>
         <p class=" messages">{{message}}</p>
