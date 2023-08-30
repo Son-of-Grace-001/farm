@@ -46,7 +46,7 @@ class Symptom(models.Model):
 class Control(models.Model):
     disease_con = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-    disease = models.ForeignKey(Symptom, on_delete=models.CASCADE)
+    disease = models.ForeignKey(Disease, on_delete=models.CASCADE)
     def __str__(self):
       return self.name
     
