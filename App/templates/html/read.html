@@ -44,14 +44,14 @@
       <h2 class="name-h">symptoms</h2>
       {% for symptom in symptoms %}
       <div class="div">
-        <p class="description">{{ symptom. disease_sym }}</p>
+        <p class="description">{{ symptom.disease_sym }}</p>
       </div>
       {% endfor %}
-      
+
       <h2 class="name-h">controls</h2>
       {% for control in controls %}
       <div class="div">
-        <p class="description">{{ disease.con }}</p>
+        <p class="description">{{control.disease_con }}</p>
       </div>
       {% endfor %}
   </main>
