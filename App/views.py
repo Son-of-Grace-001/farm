@@ -21,11 +21,11 @@ def signup(request):
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         username = request.POST.get('username')
-        if User.objects.filter(username= "username").exists:
+        if User.objects.filter(username= username).exists:
             messages.info(request, "Username has already been used")
             return redirect('signup')
         email = request.POST.get('email')
-        if User.objects.filter(email= "email").exists:
+        if User.objects.filter(email= email).exists:
             messages.info(request, "Email has already been used")
             return redirect('signup')
         password = request.POST.get('password')
