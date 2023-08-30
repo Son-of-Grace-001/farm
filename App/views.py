@@ -93,7 +93,7 @@ def read(request, id):
     symptoms = Symptom.objects.filter(disease = diseases)
     symptoms = Symptom.objects.get(id=id)
     controls = Control.objects.filter(symptom = symptoms)
-    context = {"variety": variety, "diseases": diseases, "symptom":symptoms, "control":controls}
+    context = {"variety": variety, "diseases": diseases, "symptoms":symptoms, "controls":controls}
     return render (request, 'html/read.html', context)
 
 
