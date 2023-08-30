@@ -21,19 +21,19 @@ function required(e){
 
   if (fname.value ===''){
     error1.style.display = "block";
-    return false
+    return;
   }
   error1.style.display = "none"
 
   if (lname.value ===''){
     error2.style.display = "block";
-    return false
+    return;
   }
   error2.style.display = "none"
   
   if (username.value ===''){
     error3.style.display = "block";
-    return false
+    return;
   }
   error3.style.display = "none"
 
@@ -41,7 +41,7 @@ function required(e){
     mail.style.color = "red";
     mail.style.border = "1px solid red";
     error4.style.display= "block";
-    return false
+    return;
   }
   error4.style.display = "none";
   mail.style.border = "1px solid #767A77";
@@ -49,14 +49,14 @@ function required(e){
 
   if(password.value === ''){
     error5.style.display = "block"
-    return false
+    return;
   }
   error5.style.display = "none"
   
 
   if(cpassword.value !== password.value){
     error6.style.display = "block"
-    return false
+    return;
   }
   
   error6.style.display = "none"
@@ -69,18 +69,18 @@ function required(e){
 
     
     const csrfmiddlewaretoken = form.csrfmiddlewaretoken.value
-    var data = new FormData();
-    data.append("json", JSON.stringify( obj ) );
-    let data = new FormData();
-    data.append('fname', fname.value);
-    data.append('lname', lname.value);
-    data.append('username', username.value);
-    data.append('email', mail.value);
-    data.append('password', password.value);
+    var data = {
+      username: username,
+      firstname:fname,
+      lastname:lname,
+      password:password,
+      cpassword:cpassword,
+      email:mail
+    }
     fetch("/signup",{
       method:"POST",
       headers: { "X-CSRFToken": csrfmiddlewaretoken, "Content-Type": "application/json" },
-      body: data,
+      body: JSON.stringify(data)
       // credentials: 'same-origin',
     })
     return true
