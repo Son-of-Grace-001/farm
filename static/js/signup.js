@@ -74,7 +74,6 @@ function required(e){
       firstname:fname,
       lastname:lname,
       password:password,
-      cpassword:cpassword,
       email:mail
     }
     fetch("/signup",{
