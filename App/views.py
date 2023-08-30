@@ -21,11 +21,11 @@ def signup(request):
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         username = request.POST.get('username')
-        if User.objects.filter(username= "username").exists:
+        if User.objects.filter(username= username).exists:
             messages.info(request, "Username has already been used")
             return redirect('signup')
         email = request.POST.get('email')
-        if User.objects.filter(email= "email").exists:
+        if User.objects.filter(email= email).exists:
             messages.info(request, "Email has already been used")
             return redirect('signup')
         password = request.POST.get('password')
@@ -39,12 +39,12 @@ def signup(request):
 
 def login(request):    
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
-        if username is None or password is None:
-            messages.info(request, 'username or password not found')
+        if email is None or password is None:
+            messages.info(request, 'Email or password not found')
             return redirect('/login')
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(email=email, password=password)
         if user is None:
             messages.info(request, 'Invalid login credentials')
             return redirect('/login')

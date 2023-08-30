@@ -1,19 +1,26 @@
 let error1= document.getElementById("error1");
 let error2= document.getElementById("error2");
-let username = document.getElementById("username");
+let mail = document.getElementById("email");
 let password = document.getElementById("password");
 let submit = document.getElementById("btn");
+
+var validRegex = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
 
 let form = document.getElementById("form");
 form.addEventListener("submit", required)
 function required(e){
   e.preveventDefault()
 
-  if (username.value ===""){
-    error1.style.display = "block"
-    return false
+  
+  if (!email.value.match(validRegex) || email.value ==='') {
+    email.style.color = "red";
+    email.style.border = "1px solid red";
+    error1.style.display= "block";
+    return;
   }
-  error1.style.display = "none"
+  error1.style.display = "none";
+  email.style.border = "1px solid #767A77";
+  email.style.color = "#767A77"
 
   if (password.value ===""){
     error2.style.display = "block"
