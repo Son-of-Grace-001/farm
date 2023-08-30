@@ -33,12 +33,23 @@ class Disease(models.Model):
     pest_description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
-    symptoms = models.TextField(default='hi')
-    controls = models.TextField(default='hi')
     def __str__(self):
       return self.name
 
+class Symptom(models.Model):
+    disease_sym = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    disease = models.ForeignKey(Disease, on_delete=models.CASCADE)
+    def __str__(self):
+      return self.name
 
+class Control(models.Model):
+    disease_con = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    disease = models.ForeignKey(Symptom, on_delete=models.CASCADE)
+    def __str__(self):
+      return self.name
+    
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=100)

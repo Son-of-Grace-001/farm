@@ -5,10 +5,13 @@ from . models import Category, Varieties
 from . models import Disease, CropVarieties
 from . models import ProductCategory, ProductVarieties
 from . models import CropCategory, Crop_Disease
+from . models import Control, Symptom
 admin.site.register(Category)
 admin.site.register(CropCategory)
 admin.site.register(ProductCategory)
 admin.site.register(ProductVarieties)
+admin.site.register(Control)
+admin.site.register(Symptom)
 
 
 class MyVariety(admin.ModelAdmin):
@@ -24,7 +27,7 @@ class MyCropVariety(admin.ModelAdmin):
 admin.site.register(CropVarieties, MyCropVariety)
 
 class MyDiseases(admin.ModelAdmin):
-    list_display = ('name', 'date', 'pest_description', 'symptoms', 'controls', 'varieties')
+    list_display = ('name', 'date', 'pest_description','varieties')
 admin.site.register(Disease, MyDiseases)
 
 class MyC_Diseases(admin.ModelAdmin):

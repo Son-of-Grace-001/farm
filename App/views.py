@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from . models import Category, Varieties, Disease,CropCategory
+from . models import Symptom, Control
 from . models import ProductCategory, CropVarieties, ProductVarieties 
 from django . http import JsonResponse
 import json
@@ -88,7 +89,11 @@ def varieties(request, id):
 def read(request, id):
     variety = Varieties.objects.get(id=id)
     diseases = Disease.objects.filter(varieties = variety)
-    context = {"variety": variety, "diseases": diseases}
+    diseases = Disease.objects.get(id=id)
+    symptoms = Symptom.objects.filter(diseases = diseases)
+    symptoms = Symptom.objects.get(id=id)
+    controls = Control.objects.filter(symptom = symptoms)
+    context = {"variety": variety, "diseases": diseases, "symptom":symptoms, "control":controls}
     return render (request, 'html/read.html', context)
 
 

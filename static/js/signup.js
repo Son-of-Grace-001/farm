@@ -79,7 +79,7 @@ function required(e){
     fetch("/signup",{
       method:"POST",
       headers: { "X-CSRFToken": csrfmiddlewaretoken, "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      body: data
       // credentials: 'same-origin',
     })
     return true

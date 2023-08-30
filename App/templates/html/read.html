@@ -38,12 +38,22 @@
     <div class="div">
       <p style="font-size: bold;" class="description">{{ disease.name }}</p>
       <p class="description">{{ disease.pest_description }}</p>
-      <h2 class="name-h">symptoms</h2>
-      <p class="description">{{ disease.symptoms }}</p>
-      <h2 class="name-h">controls</h2>
-      <p class="description">{{ disease.controls }}</p>
     </div> 
     {% endfor %}
+
+      <h2 class="name-h">symptoms</h2>
+      {% for symptom in symptoms %}
+      <div class="div">
+        <p class="description">{{ symptoms. disease_sym }}</p>
+      </div>
+      {% endfor %}
+
+      <h2 class="name-h">controls</h2>
+      {% for control in controls %}
+      <div class="div">
+        <p class="description">{{ disease.con }}</p>
+      </div>
+      {% endfor %}
   </main>
 </body>
 </html>
