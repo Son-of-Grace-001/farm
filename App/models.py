@@ -96,16 +96,6 @@ class CropVarieties(models.Model):
     def __str__(self):
       return self.name
     
-class Crop_Disease(models.Model):
-    name = models.CharField(max_length=100)
-    disease_description = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    varieties = models.ForeignKey(Varieties, on_delete=models.CASCADE)
-    symptoms = models.TextField()
-    controls = models.TextField()
-    def __str__(self):
-      return self.name
-    
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
