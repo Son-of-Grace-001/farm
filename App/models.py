@@ -134,3 +134,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+class Name(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
