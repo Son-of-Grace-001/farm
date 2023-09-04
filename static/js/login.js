@@ -36,7 +36,7 @@ function required(e){
     var data = new FormData();
     data.append("json", JSON.stringify( obj ) );
     let data = new FormData();
-    data.append('username', username.value);
+    data.append('email', mail.value);
     data.append('password', password.value);
     fetch("/login",{
       method:"POST",
