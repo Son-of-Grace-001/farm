@@ -48,8 +48,8 @@ def login(request):
             messages.info(request, 'Email or password not found')
             return redirect('/login')
         
-        user = auth.authenticate(email=email, password=password)
-        if user is None:
+        CustomUser = auth.authenticate(email=email, password=password)
+        if CustomUser is None:
             messages.info(request, 'Invalid login credentials')
             return redirect('/login')
         auth.login(request, user)
