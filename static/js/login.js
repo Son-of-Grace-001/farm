@@ -1,56 +1,50 @@
-let error1 = document.getElementById("required1");
-let error2 = document.getElementById("required2");
-let mail = document.getElementById("mail");
+let error1= document.getElementById("error1");
+let error2= document.getElementById("error2");
+let mail = document.getElementById("email");
 let password = document.getElementById("password");
-let form = document.getElementById("form");
 let submit = document.getElementById("btn");
 
 var validRegex = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+let form = document.getElementById("form");
+form.addEventListener("submit", required)
+function required(e){
+  e.preveventDefault()
 
-  // Validation checks
-
-  if (!mail.value.match(validRegex) || mail.value === '') {
-    mail.style.color = "red";
-    mail.style.border = "1px solid red";
-    error2.style.display = "block";
+  
+  if (!email.value.match(validRegex) || email.value ==='') {
+    email.style.color = "red";
+    email.style.border = "1px solid red";
+    error1.style.display= "block";
+    return;
   }
-  else{
-    return true;
-  }
+  error1.style.display = "none";
+  email.style.border = "1px solid #767A77";
+  email.style.color = "#767A77"
 
-  if (password.value === '') {
-    error1.style.display = "block";
+  if (password.value ===""){
+    error2.style.display = "block"
+    return false
   }
-  else{
-    return true;
-  }
+  error2.style.display = "none"
 
-  // If all validation checks pass, submit the form
-  if (
-    password.value !== "" &&
-    (mail.value.match(validRegex) && mail.value !== "")
-  ) {
-    // You can choose to submit the form here or return true
-    // Use the correct endpoint for user registration in your fetch request
-    const csrfmiddlewaretoken = form.csrfmiddlewaretoken.value;
-    const formData = new FormData(form);
+  if (username.value !=="" && password.value !==""){
+    submit.style.backgroundColor = "#1D4025"
+    submit.style.color = "#ffffff"
 
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "X-CSRFToken": csrfmiddlewaretoken,
-      },
-      body: formData,
+    const csrfmiddlewaretoken = form.csrfmiddlewaretoken.value
+    var data = new FormData();
+    data.append("json", JSON.stringify( obj ) );
+    let data = new FormData();
+    data.append('email', mail.value);
+    data.append('password', password.value);
+    fetch("/login",{
+      method:"POST",
+      headers: { "X-CSRFToken": csrfmiddlewaretoken, "Content-Type": "application/json" },
+      body: data,
+      // credentials: 'same-origin',
     })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response from the server (e.g., display success message)
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    return true
   }
-});
+
+}
