@@ -5,6 +5,7 @@ from . models import Category, Varieties
 from . models import Disease, CropVarieties
 from . models import ProductCategory, ProductVarieties
 from . models import CropCategory
+from . models import CustomUser
 from . models import Control, Symptom
 admin.site.register(Category)
 admin.site.register(CropCategory)
@@ -12,7 +13,7 @@ admin.site.register(ProductCategory)
 admin.site.register(ProductVarieties)
 admin.site.register(Control)
 admin.site.register(Symptom)
-
+admin.site.register(CustomUser)
 
 
 class MyVariety(admin.ModelAdmin):

@@ -9,8 +9,7 @@ from . models import Symptom, Control
 from . models import ProductCategory, CropVarieties, ProductVarieties 
 from django . http import JsonResponse
 import json
-from .models import CustomUser
-
+User = get_user_model()
 
 # Create your views here.
 
@@ -22,11 +21,11 @@ def signup(request):
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         username = request.POST.get('username')
-        if CustomUser.objects.filter(username= username).exists:
+        if User.objects.filter(username= username).exists():
             messages.info(request, "Username has already been used")
             return redirect('signup')
         email = request.POST.get('email')
-        if CustomUser.objects.filter(email= email).exists:
+        if User.objects.filter(email= email).exists():
             messages.info(request, "Email has already been used")
             return redirect('signup')
         password = request.POST.get('password')
@@ -34,7 +33,7 @@ def signup(request):
         if not lastname or not firstname or not username or not email or not password:
             print("Incomplete details")
         else:
-            new_user = CustomUser.objects.create(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
+            new_user = User.objects.create(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
             new_user.set_password(password)
             new_user.save()
             return redirect('home')
@@ -48,11 +47,11 @@ def login(request):
             messages.info(request, 'Email or password not found')
             return redirect('/login')
         
-        CustomUser = auth.authenticate(email=email, password=password)
-        if CustomUser is None:
+        User = auth.authenticate(email=email, password=password)
+        if User is None:
             messages.info(request, 'Invalid login credentials')
             return redirect('/login')
-        auth.login(request, CustomUser)
+        auth.login(request, User)
         return redirect('home')
     return render(request, 'html/login.html')
 
