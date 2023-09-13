@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
-# from django.contrib.auth import get_user_model
-# User = get_user_model
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 from . models import Category, Varieties, Disease,CropCategory
 from . models import Symptom, Control
 from . models import ProductCategory, CropVarieties, ProductVarieties 
 from django . http import JsonResponse
 import json
+from .models import CustomUser
 
 
 # Create your views here.
@@ -18,23 +18,24 @@ def index(request):
     return render(request, 'html/index.html')
 
 def signup(request):
-    
     if request.method == 'POST':
         firstname = request.POST.get('firstname')
         lastname = request.POST.get('lastname')
         username = request.POST.get('username')
-        if User.objects.filter(username= username).exists:
+        if CustomUser.objects.filter(username= username).exists:
             messages.info(request, "Username has already been used")
             return redirect('signup')
         email = request.POST.get('email')
-        if User.objects.filter(email= email).exists:
+        if CustomUser.objects.filter(email= email).exists:
             messages.info(request, "Email has already been used")
             return redirect('signup')
         password = request.POST.get('password')
+        
         if not lastname or not firstname or not username or not email or not password:
             print("Incomplete details")
         else:
-            new_user = User.objects.create(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
+            new_user = CustomUser.objects.create(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
+            new_user.set_password(password)
             new_user.save()
             return redirect('home')
     return render(request, 'html/signup.html')
@@ -46,6 +47,7 @@ def login(request):
         if email is None or password is None:
             messages.info(request, 'Email or password not found')
             return redirect('/login')
+        
         user = auth.authenticate(email=email, password=password)
         if user is None:
             messages.info(request, 'Invalid login credentials')
@@ -90,11 +92,18 @@ def varieties(request, id):
 
 def read(request, id):
     variety = Varieties.objects.get(id=id)
-    diseases = Disease.objects.filter(varieties = variety)
-    diseases = Disease.objects.get(id=id)
-    symptoms = Symptom.objects.filter(disease = diseases)
-    controls = Control.objects.filter(disease = diseases)
-    context = {"variety": variety, "diseases": diseases, "symptoms":symptoms, "controls":controls}
+    diseases = variety.disease_set.all()
+    symptoms = []
+    controls = []
+    for disease in diseases:
+        disease_symptoms = disease.symptom_set.all()
+        symptoms.extend(disease_symptoms)
+        disease_controls = disease.control_set.all()
+        controls.extend(disease_controls)
+    context = {'variety': variety,
+        'diseases': diseases,
+        'symptoms': symptoms,
+        'controls': controls,}
     return render (request, 'html/read.html', context)
 
 

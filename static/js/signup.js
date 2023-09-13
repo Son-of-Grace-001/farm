@@ -77,6 +77,7 @@ function required(e){
     data.append('firstname', fname.value);
     data.append('lastname', lname.value);
     data.append('username', username.value);
+    data.append('cpass', cpassword.value);
     fetch("/login",{
       method:"POST",
       headers: { "X-CSRFToken": csrfmiddlewaretoken, "Content-Type": "application/json" },
