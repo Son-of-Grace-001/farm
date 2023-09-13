@@ -52,7 +52,7 @@ def login(request):
         if CustomUser is None:
             messages.info(request, 'Invalid login credentials')
             return redirect('/login')
-        auth.login(request, user)
+        auth.login(request, CustomUser)
         return redirect('home')
     return render(request, 'html/login.html')
 
