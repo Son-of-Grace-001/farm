@@ -30,13 +30,22 @@ form.addEventListener("submit", function (e) {
   if (fname.value === '') {
     error1.style.display = "block";
   }
-  
+  else{
+    return true;
+  }
+
   if (lname.value === '') {
     error2.style.display = "block";
+  }
+  else{
+    return true;
   }
 
   if (username.value === '') {
     error3.style.display = "block";
+  }
+  else{
+    return true;
   }
 
   if (!mail.value.match(validRegex) || mail.value === '') {
@@ -44,15 +53,24 @@ form.addEventListener("submit", function (e) {
     mail.style.border = "1px solid red";
     error4.style.display = "block";
   }
+  else{
+    return true;
+  }
 
   if (password.value === '') {
     error5.style.display = "block";
+  }
+  else{
+    return true;
   }
 
   if (cpassword.value !== password.value) {
     error6.style.display = "block";
   }
-
+  else{
+    return true;
+  }
+  
   // If all validation checks pass, submit the form
   if (
     fname.value !== "" &&
