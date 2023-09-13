@@ -22,11 +22,11 @@ def signup(request):
         lastname = request.POST.get('lastname')
         username = request.POST.get('username')
         if User.objects.filter(username= username).exists():
-            messages.info(request, "Username has already been used")
+            messages.error(request, "Username has already been used")
             return redirect('signup')
         email = request.POST.get('email')
         if User.objects.filter(email= email).exists():
-            messages.info(request, "Email has already been used")
+            messages.error(request, "Email has already been used")
             return redirect('signup')
         password = request.POST.get('password')
         
@@ -44,12 +44,12 @@ def login(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         if email is None or password is None:
-            messages.info(request, 'Email or password not found')
+            messages.error(request, 'Email or password not found')
             return redirect('/login')
         
-        User = auth.authenticate(email=email, password=password)
+        User = auth.authenticate(username=email, password=password)
         if User is None:
-            messages.info(request, 'Invalid login credentials')
+            messages.error(request, 'Invalid login credentials')
             return redirect('/login')
         auth.login(request, User)
         return redirect('home')
