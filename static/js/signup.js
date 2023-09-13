@@ -67,7 +67,7 @@ form.addEventListener("submit", function (e) {
     const csrfmiddlewaretoken = form.csrfmiddlewaretoken.value;
     const formData = new FormData(form);
 
-    fetch("/signup/", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "X-CSRFToken": csrfmiddlewaretoken,
