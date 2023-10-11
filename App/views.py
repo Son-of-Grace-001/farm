@@ -40,10 +40,11 @@ def signup(request):
     return render(request, 'html/signup.html')
 
 def login(request):    
-        password = request.POST.get('password')
-        if email is None or password is None:
-            messages.error(request, 'Email or password not found')
-            return redirect('/login')
+    password = request.POST.get('password')
+    email = request.POST.get('email')
+    if email is None or password is None:
+        messages.error(request, 'Email or password not found')
+        return redirect('/login')
         
         User = auth.authenticate(username=email, password=password)
         if User is None:
